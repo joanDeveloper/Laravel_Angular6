@@ -1,0 +1,69 @@
+<div class="home-page">
+
+  <div class="banner" *appShowAuthed="false">
+    <div class="container">
+      <h1 class="logo-font">Contact</h1>
+      <p>Contacta con nosotros</p>
+    </div>
+  </div>
+  
+  <div class="container page">
+    <app-list-errors [errors]="errors"></app-list-errors>
+    <form [formGroup]="articleForm" novalidate>
+          <fieldset [disabled]="isSubmitting">
+            <fieldset class="form-group">
+              <input class="form-control form-control-lg"
+                formControlName="name"
+                type="text"
+                placeholder="Your name" />
+              <div *ngIf="articleForm.get('name').errors" class="alert alert-danger">
+                <p *ngIf="articleForm.get('name').errors['required']">
+                  Name requerido
+                </p>
+              </div>
+            </fieldset>             
+           
+            <fieldset class="form-group">
+              <input class="form-control"
+                formControlName="email"
+                type="email"
+                placeholder="Your email" />
+              <div *ngIf="articleForm.get('email').errors" class="alert alert-danger">
+                <p *ngIf="articleForm.get('email').errors['required']">
+                  Email requerido
+                </p>
+              </div>
+            </fieldset>
+            
+            <fieldset class="form-group">
+              <select formControlName="subject">
+                <option value="TEST">TEST</option>
+                <option value="TEST1">TEST1</option>
+              </select>
+              <div *ngIf="articleForm.get('subject').errors" class="alert alert-danger">
+                <p *ngIf="articleForm.get('subject').errors['required']">
+                  suject requerido
+                </p>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <textarea class="form-control"
+                formControlName="comment"
+                rows="8"
+                placeholder="Write your article (in markdown)">
+              </textarea>
+              <div *ngIf="articleForm.get('comment').errors" class="alert alert-danger">
+                <p *ngIf="articleForm.get('comment').errors['required']">
+                  commentario requerido
+                </p>
+              </div>
+            </fieldset>
+
+            <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="submitForm()" [disabled]="!articleForm.valid">
+              SEND
+            </button>
+          </fieldset>
+        </form>
+  </div>
+</div>
