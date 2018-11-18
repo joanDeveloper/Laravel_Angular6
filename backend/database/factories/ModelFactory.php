@@ -1,5 +1,5 @@
 <?php
-
+use App\Smartphones;
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -10,6 +10,20 @@
 | database. Just tell the factory how a default model should look.
 |
 */
+$factory->define(App\Smartphones::class, function (\Faker\Generator $faker) {
+
+    return [
+        'name' => str_replace('.', '', $faker->unique()->name),
+        'description' => $faker->sentence(10),
+        'battery' => 'secret',
+        'inches' => $faker->numberBetween(1, 50),
+        'system' => 'android',
+        'model' => 'b5',
+        'brand' => 'BQ',
+        'camera' => $faker->numberBetween(0,1),
+        'pixels' => $faker->numberBetween(2, 20),
+    ];
+});
 
 $factory->define(App\User::class, function (\Faker\Generator $faker) {
 

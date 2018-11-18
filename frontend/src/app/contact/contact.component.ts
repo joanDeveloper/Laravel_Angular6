@@ -26,10 +26,10 @@ export class ContactComponent{
   ) {
     // use the FormBuilder to create a form group
     this.articleForm = this.fb.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      name: ['', [Validators.required,Validators.minLength(4),Validators.maxLength(15)]],
+      email: ['', [Validators.required,Validators.email]],
       subject: ['', [Validators.required]],
-      comment: ['', [Validators.required]]
+      comment: ['', [Validators.required,Validators.minLength(8),Validators.maxLength(200)]]
     });
 
     // Initialized tagList as empty array
@@ -39,30 +39,25 @@ export class ContactComponent{
 
   submitForm() {
     console.log("titles",this.articleForm);
-    console.log("title",this.articleForm.value.name);
-    
+    /*console.log("title",this.articleForm.value.name);*/
     this.contactService.Contact(this.articleForm.value)
-    .subscribe(data => {
-      console.log("res frontend:",data);
-      this.toastr.successToastr('Has enviado tus datos correctamente', 'Perfecto!');
-      this.isSubmitting = false;
-      this.router.navigateByUrl('/');
-    },
+    .subscribe(
+      data => {
+        console.log("res frontend:",data);
+        this.toastr.successToastr('Has enviado tus datos correctamente', 'Perfecto!');
+        this.isSubmitting = false;
+        this.router.navigateByUrl('/');
+      },
       err => {
         console.log("err",err);
         this.errors = err;
-        this.toastr.errorToastr('Ha habido algún problema al enviar datos al servidor, revisa bien sus datos', 'Oops!');
+        this.toastr.errorToastr('Ha habido algún problema al enviar datos al servidor, revise bien sus datos', 'Error!');
         /*this.toastr.infoToastr('This is info toast.', 'Info');
         this.toastr.warningToastr('This is warning toast.', 'Alert!');
         this.toastr.errorToastr('This is error toast.', 'Oops!');
         this.toastr.successToastr('This is success toast.', 'Success!');*/
-
-        
       }
-
     );
-    
   }
-
 }
 

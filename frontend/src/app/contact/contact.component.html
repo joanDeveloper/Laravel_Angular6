@@ -16,9 +16,15 @@
                 formControlName="name"
                 type="text"
                 placeholder="Your name" />
-              <div *ngIf="articleForm.get('name').errors" class="alert alert-danger">
+              <div *ngIf="articleForm.get('name').errors && (articleForm.get('name').dirty || articleForm.get('name').touched)" class="alert alert-danger">
                 <p *ngIf="articleForm.get('name').errors['required']">
-                  Name requerido
+                  Name required
+                </p>
+                <p *ngIf="articleForm.get('name').errors['minlength']">
+                  Name min 4 characters
+                </p>
+                <p *ngIf="articleForm.get('name').errors['maxlength']">
+                  Name max 15 characters
                 </p>
               </div>
             </fieldset>             
@@ -28,7 +34,10 @@
                 formControlName="email"
                 type="email"
                 placeholder="Your email" />
-              <div *ngIf="articleForm.get('email').errors" class="alert alert-danger">
+              <div *ngIf="articleForm.get('email').errors && (articleForm.get('email').dirty || articleForm.get('email').touched)" class="alert alert-danger">
+                <p *ngIf="articleForm.get('email').errors['email']">
+                  Email invalido
+                </p>
                 <p *ngIf="articleForm.get('email').errors['required']">
                   Email requerido
                 </p>
@@ -37,12 +46,12 @@
             
             <fieldset class="form-group">
               <select formControlName="subject">
-                <option value="TEST">TEST</option>
-                <option value="TEST1">TEST1</option>
+                <option value="Buys">Buys</option>
+                <option value="Sugerations">Sugerations</option>
               </select>
-              <div *ngIf="articleForm.get('subject').errors" class="alert alert-danger">
+              <div *ngIf="articleForm.get('subject').errors && (articleForm.get('subject').dirty || articleForm.get('subject').touched)" class="alert alert-danger">
                 <p *ngIf="articleForm.get('subject').errors['required']">
-                  suject requerido
+                  subject requerido
                 </p>
               </div>
             </fieldset>
@@ -53,9 +62,15 @@
                 rows="8"
                 placeholder="Write your article (in markdown)">
               </textarea>
-              <div *ngIf="articleForm.get('comment').errors" class="alert alert-danger">
+              <div *ngIf="articleForm.get('comment').errors && (articleForm.get('comment').dirty || articleForm.get('comment').touched)" class="alert alert-danger">
                 <p *ngIf="articleForm.get('comment').errors['required']">
-                  commentario requerido
+                  comment requerido
+                </p>
+                <p *ngIf="articleForm.get('comment').errors['minlength']">
+                  comment min 8 characters
+                </p>
+                <p *ngIf="articleForm.get('comment').errors['maxlength']">
+                  comment max 200 characters
                 </p>
               </div>
             </fieldset>

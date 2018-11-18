@@ -22,7 +22,7 @@ class DataContact extends ApiRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|min:4|max:25',
+            'name' => 'required|string|min:4|max:15',
             'email' => 'required|email|max:30',
             'subject' => 'required|string',
             'comment' => 'required|string|min:8|max:200',

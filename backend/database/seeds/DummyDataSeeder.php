@@ -61,6 +61,13 @@ class DummyDataSeeder extends Seeder
     protected $usersWithFollowingRatio = 0.75;
 
     /**
+     * Total number of smartphones.
+     *
+     * @var int
+     */
+    protected $totalSmartphones = 25;
+
+    /**
      * Populate the database with dummy data for testing.
      * Complete dummy data generation including relationships.
      * Set the property values as required before running database seeder.

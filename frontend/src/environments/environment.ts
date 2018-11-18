@@ -7,5 +7,5 @@ export const environment = {
   production: false,
   //api_url: 'https://conduit.productionready.io/api'
   //https://laravel2-1-yomogan.c9users.io/conduit_laravel/public/api
-  api_url: 'http://localhost/backend/public/api'
+  api_url: 'http://localhost/Laravel/backend/public/api'
 };
