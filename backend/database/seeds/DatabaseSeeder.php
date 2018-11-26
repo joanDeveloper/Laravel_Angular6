@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(DummyDataSeeder::class);
-        $this->call(SmartphoneSeeder::class);
+        //$this->call(DummyDataSeeder::class);
+        $this->call(DevicesSeeder::class);
     }
 }

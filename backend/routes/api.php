@@ -42,9 +42,8 @@ Route::group(['namespace' => 'Api'], function () {
     ]);
 
     Route::get('tags', 'TagController@index');
-    //Route::get('smartphones', 'SmartphoneController@index');
 
-    Route::resource('smartphones', 'SmartphoneController');
-    //Route::get('smartphones/{smartphone}', 'SmartphoneController@show');
+    Route::resource('devices', 'DeviceController');
+    //Route::get('devices/{slug}', 'DeviceController@show');
 
 });

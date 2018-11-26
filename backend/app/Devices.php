@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;*/
 use Illuminate\Database\Eloquent\Model;
 
-class Smartphones extends Model
+class Devices extends Model
 {   
     use Filterable, HasSlug;
     //use Notifiable, Followable, HasFavorite;
@@ -21,11 +21,11 @@ class Smartphones extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'battery', 'inches', 'system', 
-        'model', 'brand', 'camera', 'pixels'
+        'slug','model', 'description', 'price', 'battery', 'brand', 
+        'camera'
     ];
 
-    public function smartphones()
+    public function devices()
     {
         return $this->belongsToMany();
     }
@@ -47,13 +47,13 @@ class Smartphones extends Model
      */
     public function getSlugSourceColumn()
     {
-        return 'name';
+        return 'model';
     }
 
-    // public function smartphones()
-    // {
-    //     return $this->belongsToMany(Smartphones::class);
-    // }
+    /* public function smartphones()
+     {
+         return $this->belongsToMany(Devices::class);
+     }*/
     
     
 }

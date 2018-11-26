@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        /*Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('username');
             $table->string('email');
@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             $table->unique(['username', 'email']);
-        });
+        });*/
     }
 
     /**

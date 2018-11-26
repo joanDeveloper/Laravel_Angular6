@@ -2,9 +2,9 @@
 
 namespace App\RealWorld\Transformers;
 
-class SmartphoneTransformer extends Transformer
+class DevicesTransformer extends Transformer
 {
-    protected $resourceName = 'smartphone';
+    protected $resourceName = 'devices';
 
     public function transform($data)
     {
@@ -13,15 +13,12 @@ class SmartphoneTransformer extends Transformer
         //return $data;
         return [
             'slug'              => $data['slug'],
-            'name'              => $data['name'],
+            'model'              => $data['model'],
             'description'             => $data['description'],
+            'price'       => $data['price'],
             'battery'       => $data['battery'],
-            'inches'       => $data['inches'],
-            'system'       => $data['system'],
-            'model'       => $data['model'],
             'brand'       => $data['brand'],
-            'camera'       => $data['camera'],
-            'pixels'       => $data['pixels']
+            'camera'       => $data['camera']
             
         ];
     }

@@ -13,7 +13,7 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        /*Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('article_id');
@@ -29,7 +29,7 @@ class CreateCommentsTable extends Migration
                 ->references('id')
                 ->on('articles')
                 ->onDelete('cascade');
-        });
+        });*/
     }
 
     /**

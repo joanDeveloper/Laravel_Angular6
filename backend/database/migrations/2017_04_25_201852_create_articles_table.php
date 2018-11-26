@@ -13,7 +13,7 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        /*Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('slug');
@@ -28,7 +28,7 @@ class CreateArticlesTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-        });
+        });*/
     }
 
     /**

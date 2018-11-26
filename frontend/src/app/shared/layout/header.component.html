@@ -1,11 +1,13 @@
 <nav class="navbar navbar-light">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/">conduit</a>
+  <div class="">
+    
 
     <!-- Show this for logged out users -->
-    <ul *appShowAuthed="false"
-      class="nav navbar-nav pull-xs-right">
-
+    <div *appShowAuthed="false" class="container-flex__nav">
+      
+      <li class="nav-item">
+        <a class="navbar-brand" routerLink="/">Smart Devices</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link"
           routerLink="/">
@@ -37,7 +39,7 @@
         </a>
       </li>
 
-    </ul>
+    </div>
 
     <!-- Show this for logged in users -->
     <ul *appShowAuthed="true"

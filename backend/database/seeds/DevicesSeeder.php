@@ -7,15 +7,14 @@ use App\Devices;
 class DevicesSeeder extends Seeder
 {
     /**
-     * Total number of smartphones.
+     * Run the database seeds.
      *
-     * @var int
+     * @return void
      */
     protected $totalDevices = 25;
-
     public function run(\Faker\Generator $faker)
     {
-        $smartphones = factory(\App\Devices::class)->times($this->totalDevices)->create();
-        
+        //
+        $devices = factory(\App\Devices::class)->times($this->totalDevices)->create();
     }
 }

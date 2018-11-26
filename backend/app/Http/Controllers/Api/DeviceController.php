@@ -1,17 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-use App\Smartphones;
-use App\RealWorld\Transformers\SmartphoneTransformer;
+use App\Devices;
+use App\RealWorld\Transformers\DevicesTransformer;
 
-class SmartphoneController extends ApiController
+class DeviceController extends ApiController
 {
     /**
      * TagController constructor.
      *
      * @param TagTransformer $transformer
      */
-    public function __construct(SmartphoneTransformer $transformer)
+    public function __construct(DevicesTransformer $transformer)
     {
         $this->transformer = $transformer;
     }
@@ -23,21 +23,22 @@ class SmartphoneController extends ApiController
      */
     public function index()
     {
-        $smartphones = Smartphones::all();
+        $devices = Devices::all();
         //$smartphones = Smartphones::all()->pluck('description');
         //print_r($tags);
         //print_r($this->respondWithTransformer($tags));
         //return $smartphones;
-        return $this->respondWithTransformer($smartphones);
+        return $this->respondWithTransformer($devices);
     }
 
-    public function show(Smartphones $smartphone)
+    public function show($devices)
     {
-        //$smartphones = Smartphones::where('slug','=', $smartphone)->firstOrFail();
-        //$smartphones = Smartphones::all()->pluck('slug');
+        $devices = Devices::where('slug','=', $devices)->firstOrFail();
+        //$devices = Devices::all()->pluck('model');
+        //$devices = Devices::all();
         //print_r($article);
         //print_r($article['title']);
         //print_r($this->respondWithTransformer($article));
-        return $this->respondWithTransformer($smartphone);
+        return $this->respondWithTransformer($devices);
     }
 }

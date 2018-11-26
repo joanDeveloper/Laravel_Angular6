@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'contact',
     loadChildren: './contact/contact.module#ContactModule'
+  },
+  {
+    path: 'devices',
+    loadChildren: './device/device.module#DeviceModule'
   }
 ];
 
