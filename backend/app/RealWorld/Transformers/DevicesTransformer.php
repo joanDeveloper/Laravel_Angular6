@@ -12,14 +12,14 @@ class DevicesTransformer extends Transformer
         //return $data = json_decode($data['name'], true);
         //return $data;
         return [
-            'slug'              => $data['slug'],
-            'model'              => $data['model'],
-            'description'             => $data['description'],
+            'slug'        => $data['slug'],
+            'model'       => $data['model'],
+            'description' => $data['description'],
             'price'       => $data['price'],
-            'battery'       => $data['battery'],
+            'battery'     => $data['battery'],
             'brand'       => $data['brand'],
-            'camera'       => $data['camera']
-            
+            'camera'      => $data['camera']
+            //'tagList'           => $data['tagList'],
         ];
     }
 }

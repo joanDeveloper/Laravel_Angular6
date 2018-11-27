@@ -1,5 +1,5 @@
 <?php
-use App\Devices;
+use App\Category;
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -10,19 +10,34 @@ use App\Devices;
 | database. Just tell the factory how a default model should look.
 |
 */
-$factory->define(App\Devices::class, function (\Faker\Generator $faker) {
+$factory->define(App\Category::class, function (\Faker\Generator $faker) {
 
     return [
-        'model' => "B".$faker->numberBetween(1, 50),
-        'description' => $faker->sentence(10),
-        'price' => $faker->numberBetween(1, 500),
-        'battery' => $faker->numberBetween(1, 50),
-        'brand' => 'BQ',
-        'camera' => $faker->numberBetween(0,1)
+        'name' => $faker->randomElement(['Smartphone','Tablet']),
+        'description' => $faker->sentence(10)
     ];
 });
 
-$factory->define(App\User::class, function (\Faker\Generator $faker) {
+$factory->define(App\Devices::class, function (\Faker\Generator $faker) {
+    static $category;
+    $category = $category ?: \App\Category::all();
+
+    return [
+        'model' => "D".$faker->numberBetween(1, 100),
+        'description' => $faker->sentence(10),
+        'price' => $faker->numberBetween(1, 500),
+        'battery' => $faker->numberBetween(1, 50),
+        'brand' => $faker->randomElement(['BQ','Samsung','Xiaomi','Nokia','Huawei','Asus','Dogee']),
+        'camera' => $faker->numberBetween(0,1),
+        'media' => $faker->numberBetween(0,1),
+        'category_id' => $category->random()->id,
+
+    ];
+});
+
+
+
+/*$factory->define(App\User::class, function (\Faker\Generator $faker) {
 
     return [
         'username' => str_replace('.', '', $faker->unique()->userName),
@@ -64,4 +79,4 @@ $factory->define(App\Tag::class, function (\Faker\Generator $faker) {
     return [
         'name' => $faker->unique()->word,
     ];
-});
+});*/

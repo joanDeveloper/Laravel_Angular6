@@ -1,32 +1,14 @@
-<app-device-preview *ngFor="let device of results" [devices]="device" class="home-list__box">
+<app-device-preview *ngFor="let device of results" 
+[devices]="device" class="home-list__box">
 </app-device-preview>
 
 <div [hidden]="!loading">
     Loading devices...
 </div>
 
-<!--<div class="app-article-preview"
-  [hidden]="loading || results.length">
-  No articles are here... yet.
-</div>-->
-<!--<div class="home-page">
-    <div class="container page">
-        <li *ngFor="let tag of smartphones" class="tag-default tag-pill tag-outline">
-            <p>{{ tag.name }}</p>
-            <p>{{ tag.description }}</p>
-        </li>
-    </div>
-</div>-->
-
 <nav [hidden]="loading || totalPages.length <= 1" class="pagination container-flex">
-
-
     <div class="page-item" [ngClass]="{'active': pageNumber === currentPage}" *ngFor="let pageNumber of totalPages"
         (click)="setPageTo(pageNumber)">
-
         <a class="page-link">{{ pageNumber }}</a>
-
     </div>
-
-
 </nav>

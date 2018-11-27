@@ -22,12 +22,33 @@ class Devices extends Model
      */
     protected $fillable = [
         'slug','model', 'description', 'price', 'battery', 'brand', 
-        'camera'
+        'camera','category_id','media'
     ];
+
+/*
+public function getTagListAttribute()
+    {
+        return $this->tags->pluck('name')->toArray();
+    }
+    */
+
+     public function scopeLoadRelations($query)
+    {
+        print_r($query->pluck('slug'));
+
+        return $query->with(['user.followers' => function ($query) {
+                $query->where('follower_id', auth()->id());
+            }])
+            ->with(['favorited' => function ($query) {
+                $query->where('user_id', auth()->id());
+            }])
+            ->withCount('favorited');
+    
+    }
 
     public function devices()
     {
-        return $this->belongsToMany();
+        return $this->belongsTo('App\Category');
     }
 
     /**
@@ -55,5 +76,14 @@ class Devices extends Model
          return $this->belongsToMany(Devices::class);
      }*/
     
+    /**
+     * Get all the articles by the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function category()
+    {
+        return $this->belongsToMany(Category::class)->latest();
+    }
     
 }

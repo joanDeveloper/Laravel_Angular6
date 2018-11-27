@@ -21,14 +21,19 @@ class DeviceController extends ApiController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(DeviceFilter $filter)
     {
-        $devices = Devices::all();
+        //$devices = Devices::all();
         //$smartphones = Smartphones::all()->pluck('description');
         //print_r($tags);
         //print_r($this->respondWithTransformer($tags));
         //return $smartphones;
-        return $this->respondWithTransformer($devices);
+        //return $this->respondWithTransformer($devices);
+
+        $articles = new Paginate(Devices::loadRelations()->filter($filter));
+
+///api/devices?categotry=AngularJS&?limit=5&offset=1
+
     }
 
     public function show($devices)
