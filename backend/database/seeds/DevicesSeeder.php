@@ -19,6 +19,15 @@ class DevicesSeeder extends Seeder
     public function run(\Faker\Generator $faker)
     {
         $category = factory(\App\Category::class)->times($this->totalCategories)->create();
+        $devices = factory(\App\Devices::class)->times($this->totalDevices)->create();
+
+        $devices->random($faker->numberBetween(1, (int) $devices->count() * 0.5))
+        ->each(function ($devices) use ($faker, $category) {
+            $devices->category()->attach(
+                $category->random($faker->numberBetween(1, min($this->totalCategories, $this->totalDevices)))
+            );
+        });
+
         //$devices = factory(\App\Devices::class)->times($this->totalDevices)->create();
         //$category = factory(\App\Category::class)->times($this->totalCategories)->create();
 

@@ -24,7 +24,7 @@ class CategoryController extends ApiController
      */
     public function index()
     {
-        $categories = Category::all()->pluck('id');
+        $categories = Category::all();
         
         //print_r($tags);
         //print_r($this->respondWithTransformer($tags));
