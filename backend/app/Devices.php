@@ -54,6 +54,7 @@ class Devices extends Model
             $query->where('id', auth()->id());
         }])->withCount('devices');
        return $query;*/
+       
         /*return $query->with(['user.followers' => function ($query) {
                 $query->where('follower_id', auth()->id());
             }])

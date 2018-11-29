@@ -3,7 +3,7 @@ import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { ApiService } from './api.service';
-import { Device, ArticleListConfig } from '../models';
+import { Device, DeviceListConfig } from '../models';
 import { map } from 'rxjs/operators/map';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class DevicesService {
     private apiService: ApiService
   ) { }
 
-  query(config: ArticleListConfig): Observable<{ devices: Device[], devicesCount: number }> {
+  query(config: DeviceListConfig): Observable<{ devices: Device[], devicesCount: number }> {
     // Convert any filters over to Angular's URLSearchParams
     const params = {};
 

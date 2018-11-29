@@ -5,5 +5,11 @@
   </div>
 </div>
 
-
+<div class="tag-list">
+  <a *ngFor="let categor of categories"
+     (click)="setListTo('all', {category: categor})"
+     class="tag-default tag-pill">
+     {{ categor }}
+  </a>
+</div>
 <app-device-list [limit]="5" [config]="listConfig" class="container-flex"></app-device-list>

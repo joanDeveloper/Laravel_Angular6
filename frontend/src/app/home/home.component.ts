@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ArticleListConfig, TagsService, UserService } from '../core';
+import { DeviceListConfig, CategoryService, UserService } from '../core';
 
 @Component({
   selector: 'app-home-page',
@@ -11,16 +11,16 @@ import { ArticleListConfig, TagsService, UserService } from '../core';
 export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
-    private tagsService: TagsService,
+    private categoriesService: CategoryService,
     private userService: UserService
   ) {}
 
   isAuthenticated: boolean;
-  listConfig: ArticleListConfig = {
+  listConfig: DeviceListConfig = {
     type: 'all',
     filters: {}
   };
-  tags: Array<string> = [];
+  categories: Array<string> = [];
   tagsLoaded = false;
 
   ngOnInit() {
@@ -37,10 +37,10 @@ export class HomeComponent implements OnInit {
       }
     );
 
-    this.tagsService.getAll()
-    .subscribe(tags => {
-      console.log(tags);
-      this.tags = tags;
+    this.categoriesService.getAll()
+    .subscribe(categories => {
+      console.log("categories",categories);
+      this.categories = categories;
       this.tagsLoaded = true;
     });
   }

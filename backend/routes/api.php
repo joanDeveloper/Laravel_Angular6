@@ -44,6 +44,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('tags', 'TagController@index');
 
     Route::resource('devices', 'DeviceController');
+    Route::resource('category', 'CategoryController');
     //Route::get('devices/{slug}', 'DeviceController@show');
 
 });

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Device, ArticleListConfig, DevicesService } from '../../core';
+import { Device, DeviceListConfig, DevicesService } from '../../core';
 @Component({
   selector: 'app-device-list',
   //styleUrls: ['article-list.component.css'],
@@ -42,7 +42,7 @@ export class DeviceListComponent {
 
   @Input() limit: number;
   @Input()
-  set config(config: ArticleListConfig) {
+  set config(config: DeviceListConfig) {
     if (config) {
       this.query = config;
       this.currentPage = 1;
@@ -50,7 +50,7 @@ export class DeviceListComponent {
     }
   }
 
-  query: ArticleListConfig;
+  query: DeviceListConfig;
   results: Device[];
   loading = false;
   currentPage = 1;
@@ -79,7 +79,6 @@ export class DeviceListComponent {
         console.log("device", data.devices);
         console.log("deviceLimit", this.limit);
         console.log("deviceQuery", this.query);
-        //console.log("devicecount",data.articlesCount);
         // Used from http://www.jstips.co/en/create-range-0...n-easily-using-one-line/
         this.totalPages = Array.from(new Array(Math.ceil(data.devicesCount / this.limit)), (val, index) => index + 1);
       });

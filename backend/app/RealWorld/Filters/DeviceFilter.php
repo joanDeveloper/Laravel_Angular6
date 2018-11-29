@@ -2,9 +2,7 @@
 
 namespace App\RealWorld\Filters;
 
-use App\Tag;
 use App\Devices;
-use App\User;
 
 class DeviceFilter extends Filter
 {
