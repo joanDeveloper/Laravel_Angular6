@@ -8,9 +8,7 @@ class DevicesTransformer extends Transformer
 
     public function transform($data)
     {
-        //return $data['name'];
-        //return $data = json_decode($data['name'], true);
-        //return $data;
+
         return [
             'slug'        => $data['slug'],
             'model'       => $data['model'],
@@ -18,8 +16,8 @@ class DevicesTransformer extends Transformer
             'price'       => $data['price'],
             'battery'     => $data['battery'],
             'brand'       => $data['brand'],
-            'camera'      => $data['camera']
-            //'tagList'           => $data['tagList'],
+            'camera'      => $data['camera'],
+            'categoryList'=> $data['categoryList']
         ];
     }
 }

@@ -37,12 +37,13 @@ class ArticleController extends ApiController
     {
         $articles = new Paginate(Article::loadRelations()->filter($filter));
         
-        //echo '<pre>';
-        //print_r($articles);
-        //echo '</pre>';
+        /*echo '<pre>';
+        print_r($articles);
+        echo '</pre>';*/
         
         //print_r($this->respondWithPagination($articles));
         return $this->respondWithPagination($articles);
+        
     }
 
     /**

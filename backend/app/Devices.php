@@ -9,7 +9,7 @@ use App\RealWorld\Favorite\HasFavorite;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;*/
 use Illuminate\Database\Eloquent\Model;
-
+use App\Category;
 class Devices extends Model
 {   
     use Filterable, HasSlug;
@@ -25,30 +25,49 @@ class Devices extends Model
         'camera','category_id','media'
     ];
 
-/*
-public function getTagListAttribute()
+    
+    protected $with = [
+            'categories'
+        ];
+    public function getCategoryListAttribute()
     {
-        return $this->tags->pluck('name')->toArray();
+        //print_r($this->pluck('category_id')->toArray());
+        //return $this->id->pluck('name')->toArray();
+        //use App\Category;
+        //print_r($this->category_id);
+        $devices = Category::whereId($this->category_id)->firstOrFail();
+        //print_r($this);
+        //print_r($devices);
+        //$device = $devices->pluck('name');
+        //$devices = Category::where('slug','=', $devices)->firstOrFail();
+        return $devices;
+        //print_r($devices);
     }
-    */
+    
 
      public function scopeLoadRelations($query)
     {
-        print_r($query->pluck('slug'));
-
-        return $query->with(['user.followers' => function ($query) {
+        //print_r($query->pluck('slug'));
+        //print_r($query->where('category_id', "1"));
+       /*$query->with(['devices.slug' => function ($query) {
+            print_r($query->pluck('slug'));
+            $query->where('id', auth()->id());
+        }])->withCount('devices');
+       return $query;*/
+        /*return $query->with(['user.followers' => function ($query) {
                 $query->where('follower_id', auth()->id());
             }])
             ->with(['favorited' => function ($query) {
                 $query->where('user_id', auth()->id());
             }])
-            ->withCount('favorited');
+            ->withCount('favorited');*/
+            //return $query;
     
     }
 
     public function devices()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo(Category::class);
     }
 
     /**
@@ -81,9 +100,11 @@ public function getTagListAttribute()
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function category()
+
+    public function categories()
     {
-        return $this->belongsToMany(Category::class)->latest();
+        //return $this->belongsToMany(Category::class)->latest();
+        return $this->belongsTo(Category::class);
     }
     
 }

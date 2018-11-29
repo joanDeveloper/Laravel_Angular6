@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 use App\Devices;
 use App\RealWorld\Transformers\DevicesTransformer;
+use App\RealWorld\Filters\DeviceFilter;
+use App\RealWorld\Paginate\Paginate;
 
 class DeviceController extends ApiController
 {
@@ -29,9 +31,10 @@ class DeviceController extends ApiController
         //print_r($this->respondWithTransformer($tags));
         //return $smartphones;
         //return $this->respondWithTransformer($devices);
-
+        
         $articles = new Paginate(Devices::loadRelations()->filter($filter));
-
+        //$articles = Devices::loadRelations()->filter($filter);
+        return $this->respondWithPagination($articles);
 ///api/devices?categotry=AngularJS&?limit=5&offset=1
 
     }
