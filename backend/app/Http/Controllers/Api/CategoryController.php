@@ -24,10 +24,13 @@ class CategoryController extends ApiController
      */
     public function index()
     {
-        $categories = Category::all()->pluck('id');
+        $categories = Category::all();
         
         //print_r($tags);
         //print_r($this->respondWithTransformer($tags));
+        /*$collection2 = $categories->map(function ($item) {
+          return ['title' => $item['title'], 'category' => $item['category']];
+        });*/
         return $this->respondWithTransformer($categories);
     }
 }

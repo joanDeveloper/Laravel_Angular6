@@ -13,7 +13,10 @@ export class CategoryService {
   getAll(): Observable<[string]> {
   	console.log("category service");
     return this.apiService.get('/category')
-          .pipe(map(data => data.categories));
+          .pipe(map(data => {
+            console.log("category service",data);
+            return data.categories;
+          }));
   }
 
 }
