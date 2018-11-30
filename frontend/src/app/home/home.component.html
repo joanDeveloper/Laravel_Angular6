@@ -6,4 +6,6 @@
 </div>
 
 <app-filter-page (filterData)="onFilterDat($event)"></app-filter-page>
-<app-device-list [config]="listConfig" class="container-flex"></app-device-list>
+<section class="container-device-list center-by-margin lateral-padding">
+  <app-device-list [config]="listConfig"></app-device-list>
+</section>
