@@ -1,4 +1,5 @@
 export * from './article-helpers';
+export * from "./pagination";
 export * from './list-device';
 export * from './buttons';
 export * from './layout';

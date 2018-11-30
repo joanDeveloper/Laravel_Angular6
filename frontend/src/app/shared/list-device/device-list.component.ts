@@ -4,14 +4,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Device, DeviceListConfig, DevicesService } from '../../core';
 @Component({
   selector: "app-device-list",
-  //styleUrls: ['article-list.component.css'],
+  styleUrls: ["list-device.sass"],
   templateUrl: "./device-list.component.html"
 })
 export class DeviceListComponent {
   devices: Device = {} as Device;
   errors: Object = {};
   isSubmitting = false;
-  limit = 5;
+  limit = 4;
 
   constructor(
     private deviceService: DevicesService,
@@ -51,7 +51,8 @@ export class DeviceListComponent {
   currentPage = 1;
   totalPages: Array<number> = [1];
 
-  setPageTo(pageNumber) {
+  onSetPageTo(pageNumber: number) {
+    console.error("pageNumber00", pageNumber);
     this.currentPage = pageNumber;
     this.runQuery();
   }

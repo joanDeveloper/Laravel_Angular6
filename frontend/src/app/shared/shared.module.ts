@@ -8,6 +8,7 @@ import { ArticleListComponent, ArticleMetaComponent, ArticlePreviewComponent } f
 import { DeviceListComponent ,DevicePreviewComponent } from './list-device';
 import { FavoriteButtonComponent, FollowButtonComponent } from './buttons';
 import { ListErrorsComponent } from './list-errors.component';
+import { PaginationComponent } from "./pagination";
 import { ShowAuthedDirective } from './show-authed.directive';
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ShowAuthedDirective } from './show-authed.directive';
     ListErrorsComponent,
     ShowAuthedDirective,
     DeviceListComponent,
-    DevicePreviewComponent
+    DevicePreviewComponent,
+    PaginationComponent
   ],
   exports: [
     ArticleListComponent,
@@ -43,7 +45,8 @@ import { ShowAuthedDirective } from './show-authed.directive';
     RouterModule,
     ShowAuthedDirective,
     DeviceListComponent,
-    DevicePreviewComponent
+    DevicePreviewComponent,
+    PaginationComponent
   ]
 })
 export class SharedModule {}
