@@ -5,11 +5,5 @@
   </div>
 </div>
 
-<div class="">
-  <a *ngFor="let categor of categories"
-     (click)="setListTo('all', {category: categor.id})"
-     class="">
-     {{ categor.name }}
-  </a>
-</div>
-<app-device-list [limit]="5" [config]="listConfig" class="container-flex"></app-device-list>
+<app-filter-page (filterData)="onFilterDat($event)"></app-filter-page>
+<app-device-list [config]="listConfig" class="container-flex"></app-device-list>

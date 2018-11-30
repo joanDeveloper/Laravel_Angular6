@@ -17,6 +17,7 @@ class DevicesTransformer extends Transformer
             'battery'     => $data['battery'],
             'brand'       => $data['brand'],
             'camera'      => $data['camera'],
+            'media'      => $data['media'],
             'categoryList'=> $data['categoryList']
         ];
     }

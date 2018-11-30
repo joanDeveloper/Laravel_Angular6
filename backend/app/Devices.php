@@ -31,17 +31,9 @@ class Devices extends Model
         ];
     public function getCategoryListAttribute()
     {
-        //print_r($this->pluck('category_id')->toArray());
-        //return $this->id->pluck('name')->toArray();
-        //use App\Category;
-        //print_r($this->category_id);
         $devices = Category::whereId($this->category_id)->firstOrFail();
-        //print_r($this);
-        //print_r($devices);
-        //$device = $devices->pluck('name');
-        //$devices = Category::where('slug','=', $devices)->firstOrFail();
         return $devices;
-        //print_r($devices);
+    
     }
     
 
@@ -90,11 +82,6 @@ class Devices extends Model
     {
         return 'model';
     }
-
-    /* public function smartphones()
-     {
-         return $this->belongsToMany(Devices::class);
-     }*/
     
     /**
      * Get all the articles by the user.

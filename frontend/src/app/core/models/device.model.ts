@@ -6,4 +6,5 @@ export interface Device {
   battery: string;
   brand: string;
   camera: string;
+  media: string;
 }

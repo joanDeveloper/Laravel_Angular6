@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { ArticleListComponent, ArticleMetaComponent, ArticlePreviewComponent } from './article-helpers';
 import { DeviceListComponent ,DevicePreviewComponent } from './list-device';
+import { FilterComponent } from './filter';
 import { FavoriteButtonComponent, FollowButtonComponent } from './buttons';
 import { ListErrorsComponent } from './list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
@@ -24,6 +25,7 @@ import { ShowAuthedDirective } from './show-authed.directive';
     ArticlePreviewComponent,
     FavoriteButtonComponent,
     FollowButtonComponent,
+    FilterComponent,
     ListErrorsComponent,
     ShowAuthedDirective,
     DeviceListComponent,
@@ -33,6 +35,7 @@ import { ShowAuthedDirective } from './show-authed.directive';
     ArticleListComponent,
     ArticleMetaComponent,
     ArticlePreviewComponent,
+    FilterComponent,
     CommonModule,
     FavoriteButtonComponent,
     FollowButtonComponent,
