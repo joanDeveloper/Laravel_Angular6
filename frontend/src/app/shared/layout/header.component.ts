@@ -20,4 +20,10 @@ export class HeaderComponent implements OnInit {
       }
     );
   }
+
+  logout(){
+    console.log("YijaLogout");
+    this.userService.purgeAuth();
+  }
+
 }

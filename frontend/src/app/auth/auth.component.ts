@@ -6,7 +6,8 @@ import { Errors, UserService } from '../core';
 
 @Component({
   selector: 'app-auth-page',
-  templateUrl: './auth.component.html'
+  templateUrl: './auth.component.html',
+  styleUrls: ['./auth.component.sass']
 })
 export class AuthComponent implements OnInit {
   authType: String = '';
@@ -46,12 +47,13 @@ export class AuthComponent implements OnInit {
     this.errors = {errors: {}};
 
     const credentials = this.authForm.value;
-    
+    console.log("credentials",credentials);
+    console.log("this.authType",this.authType);
     this.userService
     .attemptAuth(this.authType, credentials)
     .subscribe(
       data => {
-        console.log(data);
+        console.log("auth",data);
         this.router.navigateByUrl('/');
       },
       err => {

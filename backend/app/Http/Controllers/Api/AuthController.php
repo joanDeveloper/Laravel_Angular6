@@ -29,6 +29,7 @@ class AuthController extends ApiController
     public function login(LoginUser $request)
     //public function login(Request $request)
     {
+        
         $credentials = $request->only('user.email', 'user.password');
         $credentials = $credentials['user'];
 
