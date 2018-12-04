@@ -1,5 +1,6 @@
 <?php
 use App\Category;
+use App\Ventas;
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -32,6 +33,18 @@ $factory->define(App\Devices::class, function (\Faker\Generator $faker) {
         'media' => $faker->numberBetween(0,1),
         'category_id' => $category->random()->id,
 
+    ];
+});
+
+$factory->define(App\Ventas::class, function (\Faker\Generator $faker) {
+    static $venta;
+    $now= new Date();
+    $venta = $venta ?: \App\Ventas::all();
+
+    return [
+        'pedido_num' => $faker->sentence(50),
+        'id_username' => $faker->sentence(50),
+        'fecha' => $faker->now()->format('d.m.Y H:i:s'),
     ];
 });
 

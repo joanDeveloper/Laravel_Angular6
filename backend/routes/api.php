@@ -15,7 +15,7 @@ Route::group(['namespace' => 'Api'], function () {
 
     Route::post('users/login', 'AuthController@login');
     Route::post('users', 'AuthController@register');
-    Route::post('users', 'AuthController@register');
+    /* Route::get('user', 'UserController@register'); */
     /* CONTACT */
     Route::post('contact', 'ContactController@email');
 
