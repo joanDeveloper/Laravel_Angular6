@@ -57,6 +57,7 @@ class AuthController extends ApiController
             'username' => $request->input('user.username'),
             'email' => $request->input('user.email'),
             'password' => $request->input('user.password'),
+            'image' => $request->input('user.image'),
         ]);
         
         //return response()->json($request->get('user'), 200, []);

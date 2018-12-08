@@ -8,18 +8,25 @@ import { ContactModule } from './contact/contact.module';
 import {
   FooterComponent,
   HeaderComponent,
-  SharedModule
+  SharedModule,SociaLoginComponent
 } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ng6-toastr-notifications';
+import { Angular2SocialLoginModule } from "angular2-social-login";
 
+let providers = {
+  "google": {
+    "clientId": "182576342220-mud060hgmvvspd7ls0gqfj359r6fk2hm.apps.googleusercontent.com"
+  }
+};
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
   imports: [
     BrowserModule,
+    Angular2SocialLoginModule,
     CoreModule,
     SharedModule,
     HomeModule,
@@ -27,9 +34,12 @@ import { ToastrModule } from 'ng6-toastr-notifications';
     AuthModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
+
 export class AppModule {}
+
+Angular2SocialLoginModule.loadProvidersScripts(providers);

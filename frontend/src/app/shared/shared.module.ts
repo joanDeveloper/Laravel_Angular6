@@ -10,6 +10,7 @@ import { FilterComponent } from './filter';
 import { FavoriteButtonComponent, FollowButtonComponent } from './buttons';
 import { ListErrorsComponent } from './list-errors.component';
 import { PaginationComponent } from "./pagination";
+import { SociaLoginComponent } from "./social-login";
 import { ShowAuthedDirective } from './show-authed.directive';
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ShowAuthedDirective } from './show-authed.directive';
     ShowAuthedDirective,
     DeviceListComponent,
     DevicePreviewComponent,
-    PaginationComponent
+    PaginationComponent,
+    SociaLoginComponent
   ],
   exports: [
     ArticleListComponent,
@@ -49,7 +51,8 @@ import { ShowAuthedDirective } from './show-authed.directive';
     ShowAuthedDirective,
     DeviceListComponent,
     DevicePreviewComponent,
-    PaginationComponent
+    PaginationComponent,
+    SociaLoginComponent
   ]
 })
 export class SharedModule {}
