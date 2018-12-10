@@ -11,6 +11,17 @@ use App\Ventas;
 | database. Just tell the factory how a default model should look.
 |
 */
+$factory->define(App\User::class, function (\Faker\Generator $faker) {
+    $now = new DateTime();
+    return [
+        'username' => str_replace('.', '', $faker->unique()->userName),
+        'email' => $faker->unique()->safeEmail,
+        'password' => 'secret',
+        'image' => 'https://cdn.worldvectorlogo.com/logos/laravel.svg',
+        'fnac' => $now->format('d-m-Y H:i:s'),
+    ];
+});
+
 $factory->define(App\Category::class, function (\Faker\Generator $faker) {
 
     return [
