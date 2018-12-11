@@ -9,10 +9,12 @@ import { DeviceListConfig, CategoryService, UserService } from '../core';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
+  
   constructor(
     private router: Router,
     private categoriesService: CategoryService,
-    private userService: UserService
+    private userService: UserService,
+    
   ) {}
 
   isAuthenticated: boolean;
@@ -22,8 +24,8 @@ export class HomeComponent implements OnInit {
   };
   categories: Array<string> = [];
   tagsLoaded = false;
-
-  ngOnInit() {
+  
+  ngOnInit() {    
     this.userService.isAuthenticated.subscribe(
       (authenticated) => {
         this.isAuthenticated = authenticated;
