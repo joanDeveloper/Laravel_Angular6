@@ -3,16 +3,26 @@ import { Router } from '@angular/router';
 
 import { DeviceListConfig, CategoryService, UserService } from '../core';
 
+/* ngrx */
+import { Store } from '@ngrx/store';
+import { AppState } from '../store/app.reducers';
+import * as favouritesActions from '../store/actions';
+import { FavouritesModel } from '../store/models';
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
+  
+  favourites: FavouritesModel[] = [];
+
   constructor(
     private router: Router,
     private categoriesService: CategoryService,
-    private userService: UserService
+    private userService: UserService,
+    private store: Store<AppState>
   ) {}
 
   isAuthenticated: boolean;
@@ -24,6 +34,10 @@ export class HomeComponent implements OnInit {
   tagsLoaded = false;
 
   ngOnInit() {
+    
+    this.store.dispatch(new favouritesActions.ActionCargarFavoritos())
+
+
     this.userService.isAuthenticated.subscribe(
       (authenticated) => {
         this.isAuthenticated = authenticated;
@@ -35,14 +49,14 @@ export class HomeComponent implements OnInit {
           this.setListTo('all');
         }
       }
-    );
+    );/* END */
 
     this.categoriesService.getAll()
     .subscribe(categories => {
       console.log("categories",categories);
       this.categories = categories;
       this.tagsLoaded = true;
-    });
+    });/* END */
   }
 
   setListTo(type: string = '', filters: Object = {}) {
