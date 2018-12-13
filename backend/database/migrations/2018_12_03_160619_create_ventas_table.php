@@ -5,6 +5,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateVentasTable extends Migration
+
+
 {
     /**
      * Run the migrations.
