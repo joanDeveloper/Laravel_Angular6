@@ -3,6 +3,7 @@
 namespace App\GraphQL\Type;
 
 use App\Devices;
+use App\Category;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Type as GraphQLType;
@@ -53,7 +54,16 @@ class DevicesType extends GraphQLType
             'media' => [
                 'type' => Type::string(),
                 'description' => 'The media of device'
-            ]
+            ],
+            'category_id' => [
+                'type' => Type::string(),
+                'description' => 'The category of device'
+            ],
+           /* 'categories' => [
+                'type' => GraphQL::type('categories'),
+                'description' => 'The profile of the user'
+            ]*/
+            
             
             
         ];
@@ -64,3 +74,37 @@ class DevicesType extends GraphQLType
         return strtolower($root->email);
     }*/
 }
+use App\GraphQL\Type\CategoriesType;
+/*class CategoriesType extends GraphQLType
+{
+    protected $attributes = [
+        'name' => 'Categories',
+        'description' => 'A type',
+        'model' => Category::class,
+    ];
+
+    public function fields()
+    {
+        return [
+            'id' => [
+                'type' => Type::nonNull(Type::int()),
+                'description' => 'The id of the category'
+            ],
+            'name' => [
+                'type' => Type::string(),
+                'description' => 'The name of category'
+            ],
+            'description' => [
+                'type' => Type::string(),
+                'description' => 'The description of category'
+            ],
+            'slug' => [
+                'type' => Type::string(),
+                'description' => 'The slug of category'
+            ],
+            
+        ];
+    }
+
+   
+}*/
