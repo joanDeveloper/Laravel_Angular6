@@ -33,7 +33,7 @@ class CategoriesType extends GraphQLType
             'slug' => [
                 'type' => Type::string(),
                 'description' => 'The slug of category'
-            ],
+            ]
             
         ];
     }

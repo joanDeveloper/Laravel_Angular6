@@ -75,36 +75,4 @@ class DevicesType extends GraphQLType
     }*/
 }
 use App\GraphQL\Type\CategoriesType;
-/*class CategoriesType extends GraphQLType
-{
-    protected $attributes = [
-        'name' => 'Categories',
-        'description' => 'A type',
-        'model' => Category::class,
-    ];
 
-    public function fields()
-    {
-        return [
-            'id' => [
-                'type' => Type::nonNull(Type::int()),
-                'description' => 'The id of the category'
-            ],
-            'name' => [
-                'type' => Type::string(),
-                'description' => 'The name of category'
-            ],
-            'description' => [
-                'type' => Type::string(),
-                'description' => 'The description of category'
-            ],
-            'slug' => [
-                'type' => Type::string(),
-                'description' => 'The slug of category'
-            ],
-            
-        ];
-    }
-
-   
-}*/

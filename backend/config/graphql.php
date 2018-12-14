@@ -2,9 +2,9 @@
 
 use App\GraphQL\Query\DevicesQuery;
 use App\GraphQL\Query\UsersQuery;
-use App\GraphQL\Query\CategoriesQuery;
 use App\GraphQL\Type\DevicesType;
 use App\GraphQL\Type\UsersType;
+use App\GraphQL\Query\CategoriesQuery;
 use App\GraphQL\Type\CategoriesType;
 
 return [
@@ -18,7 +18,6 @@ return [
         'default' => [
             'query' => [
                 'devices' => DevicesQuery::class,
-                //'devices2' => DevicesQuery2::class,
                 'categories' => CategoriesQuery::class,
                 //'users' => UsersQuery::class,
             ],
@@ -29,7 +28,6 @@ return [
     // register types
     'types' => [
         'devices'  => DevicesType::class,
-        //'devices2' => DevicesType2::class,
         'categories'  => CategoriesType::class,
         //'users'  => UsersType::class,
         
