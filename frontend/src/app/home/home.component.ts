@@ -34,8 +34,13 @@ export class HomeComponent implements OnInit {
   tagsLoaded = false;
 
   ngOnInit() {
-    
     this.store.dispatch(new favouritesActions.ActionCargarFavoritos())
+    
+    this.store.select('favoritos')
+      .subscribe(favoritos => {
+        console.warn(favoritos);
+      });
+    
 
 
     this.userService.isAuthenticated.subscribe(

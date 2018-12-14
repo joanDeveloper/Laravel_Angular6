@@ -9,3 +9,4 @@ export * from './tags.service';
 export * from './contact.service';
 export * from './device.service';
 export * from './user.service';
+export * from "./favourites.service";
