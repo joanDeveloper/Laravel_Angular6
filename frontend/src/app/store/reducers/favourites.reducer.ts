@@ -25,7 +25,8 @@ export function favouritesReducer(state = estadoInicial, action: fromFavoritos.a
         case fromFavoritos.CARGAR_FAVORITOS:
             return {
                 ...state,
-                loading:true
+                loading:true,
+                error: null
             };
         
         case fromFavoritos.CARGAR_FAVORITOS_SUCCESS:
@@ -37,11 +38,17 @@ export function favouritesReducer(state = estadoInicial, action: fromFavoritos.a
             };
         
         case fromFavoritos.CARGAR_FAVORITOS_FAIL:
+            console.warn("action.payload", action.payload);
+            
             return {
                 ...state,
                 loading: false,
                 loaded: false,
-                error: action.payload
+                error: {
+                    status: action.payload.status,
+                    message: action.payload.message,
+                    url: action.payload.url
+                }
             };
     
         default:

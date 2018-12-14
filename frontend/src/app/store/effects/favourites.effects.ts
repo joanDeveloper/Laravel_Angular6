@@ -14,17 +14,15 @@ export class FavouritesEffects {
         public favouriteService: FavouriteService
     ) {}
 
-    @Effect({ dispatch: true}) /*Esro es un obserbable y se despacha mediante el dispatch */
+    @Effect(/* { dispatch: false} */) /*Esro es un obserbable y se despacha mediante el dispatch */
     cargarFavourites$ = this.actions$.ofType( favouritesActions.CARGAR_FAVORITOS )
         .pipe(
             /* recibe un obserbable lo cancela y devuelve un nuevo observable */
             switchMap(() => {
                 return this.favouriteService.getFavourites()
                     .pipe(
-                        map(data => {
-                            console.warn(data)
-                            new favouritesActions.ActionCargarFavoritosSuccess([])
-                        }), catchError(err => of(new favouritesActions.ActionCargarFavoritosFail(err)))
+                        map(data => new favouritesActions.ActionCargarFavoritosSuccess([])),
+                        catchError(err => of(new favouritesActions.ActionCargarFavoritosFail(err)) )
                     );
             })            
             /* map( action => {

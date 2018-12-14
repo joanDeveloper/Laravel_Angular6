@@ -9,7 +9,7 @@ export class FavouriteService {
   constructor(private apiService: ApiService) {}
 
   getFavourites(): Observable<[string]> {
-    return this.apiService.get('/category')
+    return this.apiService.get('/sssssssss/category')
       .pipe(map(data => {
         console.log("FavouriteService service", data);
         return data.categories;

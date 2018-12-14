@@ -34,6 +34,8 @@ export class HomeComponent implements OnInit {
   tagsLoaded = false;
 
   ngOnInit() {
+    console.warn("this.store", this.store, "--------", this.store.dispatch(new favouritesActions.ActionCargarFavoritos()));
+    
     this.store.dispatch(new favouritesActions.ActionCargarFavoritos())
     
     this.store.select('favoritos')

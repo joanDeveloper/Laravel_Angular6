@@ -39,7 +39,8 @@ let providers = {
     "clientId": "182576342220-mud060hgmvvspd7ls0gqfj359r6fk2hm.apps.googleusercontent.com"
   }
 };
-
+console.warn("effectsArray", effectsArray);
+console.warn("appReducers", appReducers);
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
   imports: [

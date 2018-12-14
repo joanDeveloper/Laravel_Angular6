@@ -3,13 +3,15 @@ import { FavouritesModel } from "../models/favourites.model";
 
 
 
-export const CARGAR_FAVORITOS = '[Favoritos] Cargar productos favoritos'
+export const CARGAR_FAVORITOS = '[Favoritos] Cargar productos fav'
 export const CARGAR_FAVORITOS_FAIL = '[Favoritos] Cargar productos favoritos FAIL'
-export const CARGAR_FAVORITOS_SUCCESS = '[Favoritos] Cargar productos favoritos FAIL SUCCESS';
+export const CARGAR_FAVORITOS_SUCCESS = '[Favoritos] Cargar productos favoritos SUCCESS';
 
 export class ActionCargarFavoritos implements Action {
     readonly type = CARGAR_FAVORITOS;
-    constructor() { }
+    constructor() {
+        console.warn("ActionCargarFavoritos");
+    }
 }
 
 export class ActionCargarFavoritosFail implements Action {
@@ -25,4 +27,6 @@ export class ActionCargarFavoritosSuccess implements Action {
 }
  
 
-export type actionsFavoritos = ActionCargarFavoritos | ActionCargarFavoritosFail | ActionCargarFavoritosSuccess;
+export type actionsFavoritos =  ActionCargarFavoritos | 
+                                ActionCargarFavoritosFail | 
+                                ActionCargarFavoritosSuccess;
