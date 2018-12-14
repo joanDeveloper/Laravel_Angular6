@@ -13,23 +13,22 @@ class CreateFavoritesTable extends Migration
      */
     public function up()
     {
-        /*Schema::create('favorites', function (Blueprint $table) {
+        Schema::create('favorites', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('article_id');
+            $table->unsignedInteger('device_id');
             $table->timestamps();
-
-            $table->primary(['user_id', 'article_id']);
 
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
 
-            $table->foreign('article_id')
+            $table->foreign('device_id')
                 ->references('id')
-                ->on('articles')
+                ->on('devices')
                 ->onDelete('cascade');
-        });*/
+        });
     }
 
     /**

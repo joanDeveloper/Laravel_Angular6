@@ -75,8 +75,9 @@ export class AuthComponent implements OnInit{
         console.log("signInAUTH", data);
         console.log("this.authType", this.authType);
         this.user = data;
-        let user= this.user.name.replace(/ /g, "");
-        let g = {username:user ,email:this.user.email,password:"none1asd",image:this.user.image};
+        this.user.name;
+        let user = this.user.name.replace(/ /g, "");
+        let g = {username:user,email:this.user.email,password:"none1asd",image:this.user.image};
         console.log("g",g);
         this.userService
           .attemptAuth(this.authType, g)

@@ -59,11 +59,12 @@ console.warn("appReducers", appReducers);
     AuthModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
+
 export class AppModule {}
 
 Angular2SocialLoginModule.loadProvidersScripts(providers);
