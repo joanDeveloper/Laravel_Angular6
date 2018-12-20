@@ -22,6 +22,9 @@ let providers = {
   }
 };
 
+// Apollo
+import { GraphQLModule } from "./graphql.module";
+
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
   imports: [
@@ -35,6 +38,7 @@ let providers = {
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    GraphQLModule
   ],
   providers: [],
   bootstrap: [AppComponent],
