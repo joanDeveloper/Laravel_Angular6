@@ -1,10 +1,13 @@
 import { NgModule } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpHeaders } from "@angular/common/http";
 
 // Apollo
 import { ApolloModule, Apollo } from "apollo-angular";
 import { HttpLinkModule, HttpLink } from "apollo-angular-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
+
+let header: HttpHeaders = new HttpHeaders();
+header = header.append("Content-Type", "application/json");
 
 @NgModule({
   exports: [HttpClientModule, ApolloModule, HttpLinkModule]
@@ -12,10 +15,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 export class GraphQLModule {
   constructor(apollo: Apollo, httpLink: HttpLink) {
     apollo.create({
-      //link: httpLink.create({ uri: "http://localhost:4000/graphql" }),
-      //link: httpLink.create({ uri: "http://laravel-angular-graphql-yomogan.c9users.io:8080/graphql" }),
-      link: httpLink.create({ uri: "http://localhost:8000/graphql" }),
-      
+      link: httpLink.create({ uri: "http://localhost:8000/graphql",headers:header }),
       cache: new InMemoryCache()
     });
   }

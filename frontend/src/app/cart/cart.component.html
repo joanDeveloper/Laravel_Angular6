@@ -1,0 +1,11 @@
+<ul class="navbar-nav cart-items" *ngIf="items().length">
+	<li class="nav-item" *ngFor="let product of items()">
+		<div>{{ product.description}}</div>
+	</li>
+	
+</ul>
+<ul class="navbar-nav cart-items" *ngIf="items().length == 0">
+	<li class="nav-item">
+		Su carrito esta vacio
+	</li>
+</ul>

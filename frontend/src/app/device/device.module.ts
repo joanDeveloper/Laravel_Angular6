@@ -20,7 +20,7 @@ import { DeviceRoutingModule } from './device-routing.module';
   ],
 
   providers: [
-    DeviceResolver
+   // DeviceResolver
   ]
 })
 export class DeviceModule {}

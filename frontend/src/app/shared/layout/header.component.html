@@ -56,6 +56,12 @@
   </li>
 
   <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/cart', currentUser.username]" routerLinkActive="active">
+      Carrito
+    </a>
+  </li>
+
+  <li class="nav-item">
     <a class="nav-link" routerLinkActive="active" (click)="logout()">
       <i class="ion-compose"></i>Logout
     </a>

@@ -27,17 +27,17 @@ export class FilterComponent implements OnInit {
     type: 'all',
     filters: {}
   };
-  //categories: Array<string> = [];
+  categories: Array<string> = [];
   @Output() filterData = new EventEmitter();
 
   ngOnInit() {
-    /* this.categoriesService.getAll()
-     .subscribe(categories => {
-       console.log("categoriesFilter",categories);
-       this.categories = categories;
-     });*/
+    this.categoriesService.getAll()
+      .subscribe(categories => {
+        console.log("categoriesFilter", categories);
+        this.categories = categories;
+      });
 
-    this.displayRegistrations();
+    //this.displayRegistrations();
   }
 
   displayRegistrations() {
@@ -59,7 +59,7 @@ export class FilterComponent implements OnInit {
       map(result => result.data)
     );*/
 
-   /********* 2 option ******/
+    /********* 2 option ******/
     this.apollo.query({
       query: gql`
       {
@@ -73,8 +73,8 @@ export class FilterComponent implements OnInit {
       `
     }).subscribe(result => {
       console.log('result', result);
-  
-});
+
+    });
   }
 
   eventEmiter(type: string = '', filters: Object = {}) {

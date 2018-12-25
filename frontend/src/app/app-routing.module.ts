@@ -25,6 +25,10 @@ const routes: Routes = [
   {
     path: 'devices',
     loadChildren: './device/device.module#DeviceModule'
+  },
+  {
+    path: 'cart',
+    loadChildren: './cart/cart.module#CartModule'
   }
 ];
 

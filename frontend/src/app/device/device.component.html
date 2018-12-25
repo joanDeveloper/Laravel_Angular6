@@ -14,7 +14,9 @@
     <p>Descripcion:{{ device.description }}</p>
     <p>Camara:{{ device.camera }}</p>
     <p>Precio:{{ device.price }}</p>
-   
+    <button type="button" class="btn" (click)="addCart(device)">
+      Añadir al carrito
+    </button>
     </li>
   </div>
 </div>
