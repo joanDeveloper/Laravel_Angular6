@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Device, DevicesService,CartService } from '../core';
 import { ToastrManager } from 'ng6-toastr-notifications';
-import {default as NProgress} from 'nprogress'
 
 @Component({
   selector: 'app-device-page',
@@ -51,7 +50,6 @@ export class DeviceComponent implements OnInit {
 
   addCart(Product){
     console.log("DEVICE PROD",Product);
-    //this.cartService.addItem(Product);
     this.cartService.addItem(Product);
   }
 }

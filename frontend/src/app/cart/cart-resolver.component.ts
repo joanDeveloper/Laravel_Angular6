@@ -17,7 +17,7 @@ export class CartResolver {
     state: RouterStateSnapshot
   ) {
 
-    return this.cartService.totalIns();
+    //return this.cartService.totalIns();
 
   }
 }

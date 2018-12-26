@@ -2,8 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import {Product} from './cart.model';
 import {CartService} from '../core/services/cart.service'
 import { default as swal } from 'sweetalert2'
-import {default as NProgress} from 'nprogress'
-console.log("CART1");
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -14,10 +13,7 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    console.log("CART");
-    //sessionStorage.removeItem("cart")
     let cartSession = localStorage.getItem("cart");
-    //carrinho não está vazio
     if(cartSession != null){
       this.cartService.items = JSON.parse(cartSession);
     }
@@ -27,41 +23,53 @@ export class CartComponent implements OnInit {
     return this.cartService.items;
   }
   removeItem(Product){
-    let c = this.cartService
+    console.log("REMOVEITEM",Product);
+    let cart = this.cartService;
     swal({
-      title: 'Confirmação',
-      text: "Você tem certeza que deseja remover este item do carrinho?",
+      title: 'Confirmar',
+      text: "Desea eliminar " + Product.brand + " con un precio de " + Product.price + "€ del carrito?",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#449d44',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim'
-    }).then(function () {
-      NProgress.start()
-      swal(
-      'Excluído!',
-      'Item excluído do carrinho.',
-      'success'
-      )
-      NProgress.done()
-      return c.removeItem(Product)
-
-    })
-
-
+      confirmButtonText: 'Si'
+    }).then(function (e) {
+      if(e.value==true){
+        swal(
+          'Eliminado!',
+          'Producto eliminado satisfactoriamente',
+          'success'
+        )
+        return cart.removeItem(Product);
+      }
+    });
   }
 
-  total() :number{
-    return this.cartService.total()
+  total(){
+    return this.cartService.total();
   }
 
-  totalIns() :number{
-    return this.cartService.totalIns()
+  clearCart(){
+    let cart = this.cartService;
+    swal({
+      title: 'Confirmar',
+      text: "Desea vaciar el carrito?",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#449d44',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si'
+    }).then(function (e) {
+      if(e.value==true){
+        swal(
+          'Productos fuera!',
+          'Carrito vaciado satisfactoriamente',
+          'success'
+        )
+        return cart.clearCart();
+      }
+    });
+    
   }
-
-  installments(){
-    return this.cartService.installment()
-  }
-
 }
 
